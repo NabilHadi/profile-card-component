@@ -134,17 +134,41 @@ body {
   overflow: hidden;
 }
 
-/* body::after {
-  content: "22";
+main::before {
+  content: "";
+  height: 978px;
+  width: 978px;
   background-image: url("./images/bg-pattern-top.svg");
   background-repeat: no-repeat;
-  background-size: contain;
-  height: 100%;
-  width: 100%;
-  top: -40%;
-  position: absolute;
+  position: fixed;
+  top: -85%;
+  left: -210%;
   z-index: 12;
-} */
+}
+
+main::after {
+  content: "";
+  height: 978px;
+  width: 978px;
+  background-image: url("./images/bg-pattern-bottom.svg");
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: -90%;
+  right: -195%;
+  z-index: 12;
+}
+
+@media (min-width: 760px) {
+  main::before {
+    top: -70%;
+    left: -20%;
+  }
+
+  main::after {
+    bottom: -88%;
+    right: -15%;
+  }
+}
 
 .fs-large {
   font-size: 1.125rem;
@@ -155,7 +179,7 @@ body {
 }
 
 .card {
-  width: clamp(20.25rem, 350px, 21.75rem);
+  width: clamp(20.25rem, 70%, 21.75rem);
   min-width: 20.25rem;
   display: flex;
   flex-direction: column;
