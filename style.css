@@ -1,0 +1,230 @@
+:root {
+  --clr-primary-dark-blue-900: hsl(229, 23%, 23%);
+  --clr-primary-cyan-800: hsl(185, 75%, 39%);
+  --clr-primary-grayish-blue-700: hsl(227, 10%, 46%);
+
+  --clr-neutral-dark-gray-200: hsl(0, 0%, 59%);
+
+  --ff-primary: "Kumbh Sans", sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+/***
+    The new CSS reset - version 1.8.3 (last updated 21.1.2023)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(
+    :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+  ) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input,
+textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+pre {
+  all: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--clr-primary-cyan-800);
+  padding: 1.5rem;
+  font-family: var(--ff-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* body::after {
+  content: "22";
+  background-image: url("./images/bg-pattern-top.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  width: 100%;
+  top: -40%;
+  position: absolute;
+  z-index: 12;
+} */
+
+.fs-large {
+  font-size: 1.125rem;
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+.card {
+  width: clamp(20.25rem, 350px, 21.75rem);
+  min-width: 20.25rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow-y: hidden;
+  position: relative;
+  z-index: 15;
+}
+
+.card__top {
+  background: url("./images/bg-pattern-card.svg");
+  height: 8.625rem;
+}
+
+.card__content {
+  background-color: white;
+  color: var(--clr-primary-dark-blue-900);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.card__img {
+  position: absolute;
+  top: -50px;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.card__name {
+  margin-top: 4.8rem;
+}
+
+.card__age {
+  margin-left: 0.3rem;
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-dark-gray-200);
+}
+
+.card__location {
+  font-weight: var(--fw-regular);
+  color: var(--clr-neutral-dark-gray-200);
+  font-size: 0.875rem;
+}
+
+.card__stats {
+  border-top: 1px solid hsla(0, 0%, 59%, 0.3);
+  width: 100%;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.card__stats__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.card__stats__item__type {
+  font-size: 0.625rem;
+  color: var(--clr-neutral-dark-gray-200);
+  letter-spacing: 2px;
+}
